@@ -1,0 +1,73 @@
+::ng-deep .ngx-pagination {
+  margin: 10px 44px;
+}
+::ng-deep .ngx-pagination li.current {
+  background: rgb(26, 35, 59);
+  border-radius: 6px;
+}
+::ng-deep .ngx-pagination li {
+  font-size: 18px;
+}
+::ng-deep .ngx-pagination li:not(.disabled) a {
+  color: rgb(26, 35, 59);
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: fit-content;
+  margin: 20px 13% 60px 13%;
+}
+
+/* SEARCHBAR */
+.content input[type="search"] {
+  margin: 10px 5px;
+  padding: 10px 4px;
+  font-size: 26px;
+  width: 52%;
+  min-width: 405px;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  margin: 0px 0px 15px 0px;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.25s;
+}
+.content input[type="search"]:focus {
+  border-color: rgb(40, 47, 68);
+}
+.content input[type="search"]:hover {
+  border-color: rgb(40, 47, 68);
+}
+
+/* LI UL */
+ul {
+  font-size: 22px;
+  padding: 4px 0;
+  width: 400px;
+  height: fit-content;
+  list-style: none;
+  cursor: pointer;
+  color: rgb(26, 35, 59);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background: #234b8618;
+  border: 2px solid rgba(128, 128, 128, 0.12);
+  margin: 20px 0px 6px 0px;
+  /* -webkit-box-shadow: 18px 24px 65px -26px rgba(34, 35, 41, 1);
+  -moz-box-shadow: 18px 24px 65px -26px rgba(34, 35, 41, 1); */
+  box-shadow: 11px 22px 30px -40px rgba(34, 35, 41, 1);
+  transition: all 0.45s;
+}
+ul:hover {
+  background: #0a2f743b;
+}
+li {
+  padding: 10px 10px;
+  border: 1px solid transparent;
+}
+ul .name {
+  font-weight: bold;
+}

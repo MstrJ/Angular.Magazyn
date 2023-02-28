@@ -1,0 +1,153 @@
+[
+  {
+    "kod": "PROD001",
+    "nazwa": "Grzejnik ",
+    "ilosc": 13,
+    "sektor": "B2"
+  },
+  {
+    "kod": "PROD002",
+    "nazwa": "Fotel",
+    "ilosc": 6,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD003",
+    "nazwa": "Pralka",
+    "ilosc": "Biurko",
+    "sektor": "B1"
+  },
+  {
+    "kod": "PROD004",
+    "nazwa": "Biurko",
+    "ilosc": 21,
+    "sektor": "B2"
+  },
+  {
+    "kod": "PROD005",
+    "nazwa": "Wentylator",
+    "ilosc": 8,
+    "sektor": "A1"
+  },
+  {
+    "kod": "PROD006",
+    "nazwa": "Odkurzacz",
+    "ilosc": 14,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD007",
+    "nazwa": "Komoda",
+    "ilosc": 26,
+    "sektor": "B1"
+  },
+  {
+    "kod": "PROD008",
+    "nazwa": "Stolik nocny",
+    "ilosc": 16,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD009",
+    "nazwa": "Lampa",
+    "ilosc": 23,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD010",
+    "nazwa": "Sofa",
+    "ilosc": 14,
+    "sektor": "B1"
+  },
+  {
+    "kod": "PROD011",
+    "nazwa": "Szafka RTV",
+    "ilosc": 52,
+    "sektor": "B2"
+  },
+  {
+    "kod": "PROD012",
+    "nazwa": "Szafa Łazienkowa",
+    "ilosc": 10,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD013",
+    "nazwa": "Lampa",
+    "ilosc": 6,
+    "sektor": "B2"
+  },
+  {
+    "kod": "PROD014",
+    "nazwa": "Krzesło",
+    "ilosc": 4,
+    "sektor": "A2"
+  },
+
+  {
+    "kod": "PROD015",
+    "nazwa": "Toster",
+    "ilosc": 10,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD016",
+    "nazwa": "Blender",
+    "ilosc": 14,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD017",
+    "nazwa": "Mikrofalówka",
+    "ilosc": 15,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD018",
+    "nazwa": "Elektryczny grill",
+    "ilosc": 10,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD019",
+    "nazwa": "Elektryczny grzejnik",
+    "ilosc": 3,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD020",
+    "nazwa": "Wyciskarka do soków",
+    "ilosc": 0,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD021",
+    "nazwa": "Żelazko",
+    "ilosc": 4,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD022",
+    "nazwa": "Elektryczny czajnik",
+    "ilosc": 1,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD023",
+    "nazwa": "Elektryczny korkociąg",
+    "ilosc": 0,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD024",
+    "nazwa": "Robot kuchenny",
+    "ilosc": 12,
+    "sektor": "A2"
+  },
+  {
+    "kod": "PROD025",
+    "nazwa": "Elektryczna suszarka",
+    "ilosc": 8,
+    "sektor": "A2"
+  }
+]

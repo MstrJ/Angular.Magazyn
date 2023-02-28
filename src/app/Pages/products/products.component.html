@@ -1,0 +1,39 @@
+<div class="content">
+  <input
+    type="search"
+    name="search"
+    id="searchBar"
+    (input)="onSearching()"
+    [(ngModel)]="searchText"
+  />
+  <pagination-controls
+    (pageChange)="onChangePage($event)"
+    previousLabel="Poprzedni"
+    nextLabel="Następny"
+  ></pagination-controls>
+
+  <!-- <div *ngIf="authorResultList.length == 0" class="w-100 text-center text-danger">
+    <p class="h5">I'm sorry but there is no such author in our database</p>
+</div> -->
+
+  <div *ngIf="products != null; then something; else nothing">
+    <h1>hello</h1>
+  </div>
+
+  <ng-template #something>
+    <div
+      *ngFor="
+        let item of products
+          | paginate : { itemsPerPage: 10, currentPage: page }
+      "
+      routerLink="/products/{{ item.kod }}"
+    >
+      <ul>
+        <li class="name">{{ item.nazwa }}</li>
+        <!-- <li>Sektor {{ item.sektor }}</li> -->
+        <li>{{ item.kod }}</li>
+      </ul>
+    </div>
+  </ng-template>
+  <ng-template #nothing> <h1>hello</h1> </ng-template>
+</div>

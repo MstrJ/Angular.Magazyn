@@ -1,0 +1,35 @@
+import { Injectable } from '@angular/core';
+import dane from '../../assets/dane.json';
+import { IProduct } from '../IProduct';
+import { Observable, of } from 'rxjs';
+@Injectable({
+  providedIn: 'root',
+})
+export class ProductsService {
+  constructor() {}
+  public getProducts(filter: string | undefined): IProduct[] {
+    let tempDane: IProduct[] = dane as IProduct[];
+    if (filter == undefined || filter == '') return tempDane;
+
+    let filterByName = tempDane.filter((x) =>
+      x.nazwa.toLowerCase().startsWith(filter?.toLocaleLowerCase()!)
+    );
+    let filterBySector = tempDane.filter((x) =>
+      x.sektor.toLowerCase().includes(filter)
+    );
+
+    let filterByKod = tempDane.filter((x) =>
+      x.kod.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    if (filterByName.length > 0) return filterByName;
+    else if (filterByKod.length > 0) return filterByKod;
+    else if (filterBySector.length > 0) return filterBySector;
+    return filterBySector;
+  }
+
+  public getProduct(inputKod: string): Observable<IProduct> {
+    const product: IProduct = dane.find((x) => x.kod == inputKod) as IProduct;
+    return of(product);
+  }
+}

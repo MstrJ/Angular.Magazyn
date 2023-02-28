@@ -1,0 +1,10 @@
+<div *ngIf="product != undefined" class="content">
+  <p class="name">{{ product.nazwa }}</p>
+  <p>{{ product.kod }}</p>
+  <p>Ilość w magazynie: {{ product.ilosc }}</p>
+  <p>{{ product.sektor }}</p>
+  <button (click)="goBack()">Go Back</button>
+</div>
+<div *ngIf="product == undefined">
+  <p>Nie poprawne id</p>
+</div>
