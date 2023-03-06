@@ -22,7 +22,6 @@ export class ProductDetailComponent {
   getProduct(): void {
     const kod = this.route.snapshot.paramMap.get('kod')!;
     this._productService.getProduct(kod).subscribe((x) => (this.product = x));
-    console.log(this.product);
   }
 
   goBack(): void {

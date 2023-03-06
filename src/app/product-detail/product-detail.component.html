@@ -1,10 +1,17 @@
-<div *ngIf="product != undefined" class="content">
-  <p class="name">{{ product.nazwa }}</p>
-  <p>{{ product.kod }}</p>
-  <p>Ilość w magazynie: {{ product.ilosc }}</p>
-  <p>{{ product.sektor }}</p>
-  <button (click)="goBack()">Go Back</button>
+<div class="content">
+  <div *ngIf="product != undefined" class="box">
+    <p class="name">{{ product.nazwa }}</p>
+    <p>{{ product.kod }}</p>
+    <p>
+      Ilość w magazynie:
+      <b>{{ product.ilosc == 0 ? "Brak Produktu" : product.ilosc }}</b>
+    </p>
+    <p>
+      Produkt znajduje się w sektorze <b>{{ product.sektor }}</b>
+    </p>
+  </div>
+  <div *ngIf="product == undefined">
+    <p>Nie poprawne id</p>
+  </div>
 </div>
-<div *ngIf="product == undefined">
-  <p>Nie poprawne id</p>
-</div>
+<button (click)="goBack()">Wróć</button>

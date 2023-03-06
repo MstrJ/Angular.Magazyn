@@ -4,6 +4,7 @@
     name="search"
     id="searchBar"
     (input)="onSearching()"
+    value="search..."
     [(ngModel)]="searchText"
   />
   <pagination-controls
@@ -11,15 +12,17 @@
     previousLabel="Poprzedni"
     nextLabel="Następny"
   ></pagination-controls>
-
-  <!-- <div *ngIf="authorResultList.length == 0" class="w-100 text-center text-danger">
-    <p class="h5">I'm sorry but there is no such author in our database</p>
-</div> -->
-
-  <div *ngIf="products != null; then something; else nothing">
-    <h1>hello</h1>
+  <div class="wybieranie" (change)="onChangeSort()">
+    <select name="sortowanie" id="" [(ngModel)]="Sortowanie">
+      <option value="up">Rosnąco</option>
+      <option value="down">Malejąco</option>
+    </select>
+    <select name="sortowanie" id="" [(ngModel)]="Wartosc">
+      <option value="kod">Kod</option>
+      <option value="ilosc">Ilosc</option>
+    </select>
   </div>
-
+  <div *ngIf="+products.length > 0; then something; else nothing"></div>
   <ng-template #something>
     <div
       *ngFor="
@@ -30,10 +33,11 @@
     >
       <ul>
         <li class="name">{{ item.nazwa }}</li>
-        <!-- <li>Sektor {{ item.sektor }}</li> -->
         <li>{{ item.kod }}</li>
       </ul>
     </div>
   </ng-template>
-  <ng-template #nothing> <h1>hello</h1> </ng-template>
+  <ng-template #nothing>
+    <h2>Przepraszamy, nie znaleźliśmy wyników dla wpisanej frazy</h2>
+  </ng-template>
 </div>

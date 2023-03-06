@@ -34,6 +34,7 @@
   border-radius: 4px;
   outline: none;
   transition: all 0.25s;
+  color: rgb(26, 35, 59);
 }
 .content input[type="search"]:focus {
   border-color: rgb(40, 47, 68);
@@ -70,4 +71,24 @@ li {
 }
 ul .name {
   font-weight: bold;
+}
+
+.wybieranie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wybieranie select {
+  background: white;
+  padding: 8px;
+  border-radius: 4px;
+  color: rgb(26, 35, 59);
+  border: 2px solid rgba(128, 128, 128, 0.12);
+  font-size: 20px;
+  margin: 8px 10px;
+}
+.wybieranie select:hover,
+select:active,
+select:checked {
+  border: 2px solid transparent;
 }

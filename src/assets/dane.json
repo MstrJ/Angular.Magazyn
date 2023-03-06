@@ -9,12 +9,12 @@
     "kod": "PROD002",
     "nazwa": "Fotel",
     "ilosc": 6,
-    "sektor": "A2"
+    "sektor": "A1"
   },
   {
     "kod": "PROD003",
     "nazwa": "Pralka",
-    "ilosc": "Biurko",
+    "ilosc": 15,
     "sektor": "B1"
   },
   {
@@ -51,7 +51,7 @@
     "kod": "PROD009",
     "nazwa": "Lampa",
     "ilosc": 23,
-    "sektor": "A2"
+    "sektor": "A1"
   },
   {
     "kod": "PROD010",

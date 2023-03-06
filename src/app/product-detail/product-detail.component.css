@@ -1,9 +1,43 @@
 .content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 130px auto 0 auto;
   height: fit-content;
-  margin: 20px 13% 60px 13%;
+  padding: 10px;
+  background: rgb(231, 231, 231, 0.75);
+  border: 2px solid rgba(128, 128, 128, 0.12);
+  box-shadow: 11px 22px 30px -40px rgba(34, 35, 41, 1);
+  padding: 10px;
+  border-radius: 5px;
+  width: 420px;
+  background: #102a5c17;
+  color: #28314b;
+  font-size: 20px;
+  transition: all 0.45s;
+}
+.name {
+  font-size: 36px;
+  font-weight: bold;
+}
+button {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 50px auto;
+  font-size: 20px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  background: #0a2f742a;
+  transition: all 0.45s;
+  border: 2px solid rgba(128, 128, 128, 0.253);
+  box-shadow: 11px 22px 30px -25px rgba(34, 35, 41, 1);
+}
+button:hover {
+  background: #0a2f7442;
+  cursor: pointer;
 }

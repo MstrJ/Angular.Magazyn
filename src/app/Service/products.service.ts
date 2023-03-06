@@ -9,6 +9,7 @@ export class ProductsService {
   constructor() {}
   public getProducts(filter: string | undefined): IProduct[] {
     let tempDane: IProduct[] = dane as IProduct[];
+
     if (filter == undefined || filter == '') return tempDane;
 
     let filterByName = tempDane.filter((x) =>
@@ -26,6 +27,18 @@ export class ProductsService {
     else if (filterByKod.length > 0) return filterByKod;
     else if (filterBySector.length > 0) return filterBySector;
     return filterBySector;
+  }
+
+  public getSorted(
+    dane: IProduct[],
+    sortDirection: string,
+    sortBy: string
+  ): IProduct[] {
+    if (sortBy == 'kod') dane = dane.sort((a, b) => a.kod.localeCompare(b.kod));
+    else dane = dane.sort((a, b) => a.ilosc - b.ilosc);
+    if (sortDirection == 'down') dane.reverse();
+
+    return dane;
   }
 
   public getProduct(inputKod: string): Observable<IProduct> {

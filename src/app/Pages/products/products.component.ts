@@ -11,7 +11,18 @@ export class ProductsComponent {
   products: IProduct[] = [];
   searchText: string | undefined;
   page: number = 1;
+
+  Sortowanie: string = localStorage.getItem('Sortowanie')!;
+  Wartosc: string = localStorage.getItem('Wartosc')!;
   ngOnInit(): void {
+    this.getProducts();
+
+    if (localStorage.getItem('Sortowanie') != this.Sortowanie)
+      localStorage.setItem('Sortowanie', 'down');
+    if (localStorage.getItem('Wartosc') != this.Wartosc)
+      localStorage.setItem('Wartosc', 'kod');
+  }
+  onChangeSort(): void {
     this.getProducts();
   }
 
@@ -26,6 +37,13 @@ export class ProductsComponent {
   }
 
   getProducts(): void {
-    this.products = this._productService.getProducts(this.searchText);
+    localStorage.setItem('Sortowanie', this.Sortowanie);
+    localStorage.setItem('Wartosc', this.Wartosc);
+    const dane: any = this._productService.getProducts(this.searchText);
+    this.products = this._productService.getSorted(
+      dane,
+      this.Sortowanie,
+      this.Wartosc
+    );
   }
 }
