@@ -13,7 +13,7 @@ export class ProductsService {
     if (filter == undefined || filter == '') return tempDane;
 
     let filterByName = tempDane.filter((x) =>
-      x.nazwa.toLowerCase().startsWith(filter?.toLocaleLowerCase()!)
+      x.nazwa.toLowerCase().match(filter?.toLocaleLowerCase()!)
     );
     let filterBySector = tempDane.filter((x) =>
       x.sektor.toLowerCase().includes(filter)
