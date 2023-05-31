@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IProduct } from 'src/app/IProduct';
 import { ProductsService } from 'src/app/Service/products.service';
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -9,13 +8,12 @@ import { ProductsService } from 'src/app/Service/products.service';
 })
 export class ProductsComponent {
   constructor(private _productService: ProductsService) {}
-
   products: IProduct[] = [];
   searchText: string = localStorage.getItem('SearchBarValue')!;
   page: number = 1;
+
   Sortowanie: string = localStorage.getItem('Sortowanie')!;
   Wartosc: string = localStorage.getItem('Wartosc')!;
-
   ngOnInit(): void {
     this.getProducts();
 
@@ -26,7 +24,6 @@ export class ProductsComponent {
     if (localStorage.getItem('SearchBarValue') != this.searchText)
       localStorage.setItem('SearchBarValue', '');
   }
-
   onChangeSort(): void {
     this.getProducts();
   }
@@ -45,13 +42,11 @@ export class ProductsComponent {
     localStorage.setItem('Sortowanie', this.Sortowanie);
     localStorage.setItem('Wartosc', this.Wartosc);
     localStorage.setItem('SearchBarValue', this.searchText);
-
-    this._productService.getProducts(this.searchText).subscribe((dane) => {
-      this.products = this._productService.getSorted(
-        dane,
-        this.Sortowanie,
-        this.Wartosc
-      );
-    });
+    const dane: any = this._productService.getProducts(this.searchText);
+    this.products = this._productService.getSorted(
+      dane,
+      this.Sortowanie,
+      this.Wartosc
+    );
   }
 }
