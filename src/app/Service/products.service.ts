@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import dane from '../../assets/dane.json';
 import { IProduct } from '../IProduct';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  constructor() {}
   public getProducts(filter: string | undefined): IProduct[] {
     let tempDane: IProduct[] = dane as IProduct[];
 
