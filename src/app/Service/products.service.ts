@@ -1,32 +1,51 @@
 import { Injectable } from '@angular/core';
-import dane from '../../assets/dane.json';
 import { IProduct } from '../IProduct';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  public getProducts(filter: string | undefined): IProduct[] {
-    let tempDane: IProduct[] = dane as IProduct[];
+  dane: Observable<IProduct[]>;
 
-    if (filter == undefined || filter == '') return tempDane;
+  constructor(private client: HttpClient) {
+    this.dane = this.getJsonProducts();
+  }
 
-    let filterByName = tempDane.filter((x) =>
-      x.nazwa.toLowerCase().match(filter?.toLocaleLowerCase()!)
+  public getJsonProducts(): Observable<IProduct[]> {
+    return this.client
+      .get<IProduct[]>('https://localhost:7119/api/Produkty')
+      .pipe(map((response) => response));
+  }
+
+  public getProducts(filter: string | undefined): Observable<IProduct[]> {
+    let tempDane: Observable<IProduct[]> = this.dane;
+
+    if (!filter || filter === '') return tempDane;
+
+    let filterByName = tempDane.pipe(
+      map((dane) =>
+        dane.filter((x) => x.nazwa.toLowerCase().includes(filter.toLowerCase()))
+      )
     );
-    let filterBySector = tempDane.filter((x) =>
-      x.sektor.toLowerCase().includes(filter)
+
+    let filterBySector = tempDane.pipe(
+      map((dane) =>
+        dane.filter((x) =>
+          x.sektor.toLowerCase().includes(filter.toLowerCase())
+        )
+      )
     );
 
-    let filterByKod = tempDane.filter((x) =>
-      x.kod.toLowerCase().includes(filter.toLowerCase())
+    let filterByKod = tempDane.pipe(
+      map((dane) =>
+        dane.filter((x) => x.kod.toLowerCase().includes(filter.toLowerCase()))
+      )
     );
 
-    if (filterByName.length > 0) return filterByName;
-    else if (filterByKod.length > 0) return filterByKod;
-    else if (filterBySector.length > 0) return filterBySector;
-    return filterBySector;
+    return filterByName;
   }
 
   public getSorted(
@@ -34,15 +53,19 @@ export class ProductsService {
     sortDirection: string,
     sortBy: string
   ): IProduct[] {
-    if (sortBy == 'kod') dane = dane.sort((a, b) => a.kod.localeCompare(b.kod));
-    else dane = dane.sort((a, b) => a.ilosc - b.ilosc);
-    if (sortDirection == 'down') dane.reverse();
+    if (sortBy === 'kod') {
+      dane = dane.sort((a, b) => a.kod.localeCompare(b.kod));
+    } else {
+      dane = dane.sort((a, b) => a.ilosc - b.ilosc);
+    }
+    if (sortDirection === 'down') {
+      dane.reverse();
+    }
 
     return dane;
   }
 
-  public getProduct(inputKod: string): Observable<IProduct> {
-    const product: IProduct = dane.find((x) => x.kod == inputKod) as IProduct;
-    return of(product);
+  public getProduct(inputKod: string): Observable<IProduct | undefined> {
+    return this.dane.pipe(map((dane) => dane.find((x) => x.kod === inputKod)));
   }
 }
